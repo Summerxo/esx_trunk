@@ -118,7 +118,7 @@ AddEventHandler('esx_trunk:getItem', function(plate, type, item, count, itemName
       for i=1, #coffre,1 do
         if coffre[i].name == item then
           if (coffre[i].count >= count and count > 0) then
-            if (sourceItem.limit ~= -1 and sourceItem.count > sourceItem.limit) and ((sourceItem.count + count) > sourceItem.limit)  then
+            if sourceItem.limit ~= -1 and ((sourceItem.count + count) > sourceItem.limit) then
                TriggerClientEvent('esx:showNotification', _source, _U('player_cannot_hold')) 
             else
             xPlayer.addInventoryItem(item, count)
